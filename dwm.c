@@ -286,7 +286,6 @@ static void zoom(const Arg *arg);
 /* variables */
 static const char autostartblocksh[] = "autostart_blocking.sh";
 static const char autostartsh[] = "autostart.sh";
-static Systray *systray =  NULL;
 static const char broken[] = "broken";
 static const char dwmdir[] = "dwm";
 static const char localshare[] = ".local/share";
@@ -828,8 +827,8 @@ drawbar(Monitor *m)
 	unsigned int i, occ = 0, urg = 0;
 	Client *c;
 
-       if (showsystray && m == systraytomon(m))
-       	wbar -= getsystraywidth();
+	if (showsystray && m == systraytomon(m))
+		wbar -= getsystraywidth();
 
 	/* draw status first so it can be overdrawn by tags later */
 	if (m == selmon) { /* status is only drawn on selected monitor */
@@ -2472,7 +2471,7 @@ updatesystray(void)
 	Client *i;
 	Monitor *m = systraytomon(NULL);
 	unsigned int x = m->mx + m->mw;
-	unsigned int sw = TEXTW(stext) - lrpad + systrayspacing;
+	unsigned int sw = wstext - lrpad + systrayspacing;
 	unsigned int w = 1;
 
 	if (!showsystray)
