@@ -68,18 +68,18 @@ static const int resizehints = 1;    /* 1 means respect size hints in tiled resi
 static const Layout layouts[] = {
 	/* symbol     arrange function */
 	{ "[]=",      tile },    /* first entry is default */
-	{ "[M]",      monocle },
-	{ "[@]",      spiral },
-	{ "[\\]",     dwindle },
-	{ "H[]",      deck },
-	{ "TTT",      bstack },
-	{ "===",      bstackhoriz },
-	{ "HHH",      grid },
-	{ "###",      nrowgrid },
-	{ "---",      horizgrid },
-	{ ":::",      gaplessgrid },
-	{ "|M|",      centeredmaster },
-	{ ">M>",      centeredfloatingmaster },
+	{ "[M]",      monocle },		/* 1 */
+	{ "[@]",      spiral },			/* 2 */
+	{ "[\\]",     dwindle },		/* 3 */
+	{ "H[]",      deck },			/* 4 */
+	{ "TTT",      bstack },			/* 5 */
+	{ "===",      bstackhoriz },		/* 6 */
+	{ "HHH",      grid },			/* 7 */
+	{ "###",      nrowgrid },		/* 8 */
+	{ "---",      horizgrid },		/* 9 */
+	{ ":::",      gaplessgrid },		/* 10 */
+	{ "|M|",      centeredmaster },		/* 11 */
+	{ ">M>",      centeredfloatingmaster },	/* 12 */
 	{ "><>",      NULL },    /* no layout function means floating behavior */
 	{ NULL,       NULL },
 };
@@ -140,6 +140,8 @@ static Key keys[] = {
 	{ MODKEY,                       XK_t,      setlayout,      {.v = &layouts[0]} },
 	{ MODKEY,                       XK_y,      setlayout,      {.v = &layouts[1]} },
 	{ MODKEY,                       XK_u,      setlayout,      {.v = &layouts[2]} },
+	{ MODKEY,                       XK_e,      setlayout,      {.v = &layouts[5]} },
+	{ MODKEY,                       XK_r,      setlayout,      {.v = &layouts[11]} },
 	{ MODKEY,                       XK_space,  setlayout,      {0} },
 	{ MODKEY|ShiftMask,             XK_space,  togglefloating, {0} },
 	{ MODKEY,                       XK_0,      view,           {.ui = ~0 } },
